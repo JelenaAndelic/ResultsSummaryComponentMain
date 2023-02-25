@@ -1,0 +1,231 @@
+/* ---------------------------------- */
+/*         Custom properties          */
+/* ---------------------------------- */
+
+:root {
+  /* Primary Colors  */
+  --clr-red: 0 100% 67%;
+  --clr-orange: 39 100% 56%;
+  --clr-green: 166 100% 37%;
+  --clr-blue: 234 85% 45%;
+
+  /* Neutral Colors */
+  --clr-white: 0 0% 100%;
+  --clr-paleBlue: 221 100% 96%;
+  --clr-lightLavender: 241 100% 89%;
+  --clr-darkGrayBlue: 224 30% 27%;
+
+  /* Gradients - Background Colors  */
+  --bg-slateBlue: 252 100% 67%;
+  --bg-royalBlue: 241 81% 54%;
+  /* --bg-violetBlue: hsla(256, 72%, 46%, 1); */
+  --bg-violetBlue: 256 72% 46%;
+  /* --bg-persianBlue: hsla(241, 72%, 46%, 0.5); */
+  --bg-persianBlue: 241 72% 46%;
+}
+
+@font-face {
+  font-family: "hankenGrotesk";
+  src: url("/assets/fonts/HankenGrotesk-VariableFont_wght.ttf");
+}
+
+/* ---------------------------------- */
+/*               Reset                */
+/* ---------------------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+/* Set up the body */
+
+body {
+  font-family: "hankenGrotesk";
+  background-color: var(--clr-darkGrayBlue);
+  color: hsl(var(--clr-white));
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Remove animations for people who've turned them off */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.section {
+  flex-direction: column;
+  background-color: hsl(var(--clr-white));
+  text-align: center;
+}
+
+.result {
+  background-image: linear-gradient(
+    hsl(var(--bg-royalBlue) / 0.7),
+    hsl(var(--bg-royalBlue))
+  );
+  border-bottom-left-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+  padding: 1.25rem 2.8125rem 2.5rem;
+}
+
+.result__title {
+  font-size: 1.25rem;
+  margin-bottom: 1.5625rem;
+  color: hsl(var(--clr-lightLavender));
+}
+
+.result__score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.2;
+  width: 9.375rem;
+  aspect-ratio: 1;
+  background-image: linear-gradient(
+    hsl(var(--bg-violetBlue)),
+    hsl(var(--bg-royalBlue) / 0.2)
+  );
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+}
+
+.result__score--big {
+  font-size: 3.75rem;
+  font-weight: 800;
+}
+
+.result__score--small {
+  color: hsl(var(--clr-lightLavender) / 0.5);
+  font-weight: 700;
+}
+
+.result__description p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: hsl(var(--clr-lightLavender));
+}
+
+.summary {
+  padding: 1.25rem 1.875rem;
+}
+
+.summary__title {
+  text-align: left;
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: hsl(var(--clr-darkGrayBlue));
+  font-weight: 800;
+}
+
+.summary__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summary__list li {
+  padding: 1rem;
+  border-radius: 0.625rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: 700;
+}
+
+.summary__list li span {
+  font-weight: 800;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.score {
+  color: hsl(var(--clr-darkGrayBlue) / 0.5);
+}
+
+.score .bold {
+  color: hsl(var(--clr-darkGrayBlue));
+}
+
+.summary__list li:nth-child(1) {
+  background-color: hsl(var(--clr-red) / 0.1);
+  color: hsl(var(--clr-red));
+}
+
+.summary__list li:nth-child(2) {
+  background-color: hsl(var(--clr-orange) / 0.1);
+  color: hsl(var(--clr-orange));
+}
+
+.summary__list li:nth-child(3) {
+  background-color: hsl(var(--clr-green) / 0.1);
+  color: hsl(var(--clr-green));
+}
+
+.summary__list li:last-child {
+  background-color: hsl(var(--clr-blue) / 0.1);
+  color: hsl(var(--clr-blue));
+  margin-bottom: 1.25rem;
+}
+
+.summary__btn {
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+  background-color: hsl(var(--clr-darkGrayBlue));
+  padding: 0.8125rem;
+  border: 0;
+  border-radius: 1.5625rem;
+  color: hsl(var(--clr-white));
+}
+
+@media (min-width: 35em) {
+  .section {
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+  }
+}
