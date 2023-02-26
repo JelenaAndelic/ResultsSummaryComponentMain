@@ -5,7 +5,6 @@ fetch("./data.json")
   .then((results) => summaryResults.push(...results));
 
 window.onload = function (e) {
-  //   e.preventDefault();
   const listItems = summaryResults
     .map((item) => {
       return `

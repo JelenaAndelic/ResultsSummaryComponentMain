@@ -18,9 +18,7 @@
   /* Gradients - Background Colors  */
   --bg-slateBlue: 252 100% 67%;
   --bg-royalBlue: 241 81% 54%;
-  /* --bg-violetBlue: hsla(256, 72%, 46%, 1); */
   --bg-violetBlue: 256 72% 46%;
-  /* --bg-persianBlue: hsla(241, 72%, 46%, 0.5); */
   --bg-persianBlue: 241 72% 46%;
 }
 
@@ -33,10 +31,7 @@
 /*               Reset                */
 /* ---------------------------------- */
 
-/* https://piccalil.li/blog/a-modern-css-reset/ */
-
 /* Box sizing */
-
 *,
 *::before,
 *::after {
@@ -44,7 +39,6 @@
 }
 
 /* Reset margins */
-
 body,
 h1,
 h2,
@@ -58,7 +52,6 @@ picture {
 }
 
 /* Set up the body */
-
 body {
   font-family: "hankenGrotesk";
   background-color: var(--clr-darkGrayBlue);
@@ -69,7 +62,6 @@ body {
 }
 
 /* Remove animations for people who've turned them off */
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -92,6 +84,7 @@ body {
 }
 
 .result {
+  flex: 1;
   background-image: linear-gradient(
     hsl(var(--bg-royalBlue) / 0.7),
     hsl(var(--bg-royalBlue))
@@ -140,7 +133,8 @@ body {
 }
 
 .summary {
-  padding: 1.25rem 1.875rem;
+  flex: 1;
+  padding: 1.5625rem 1.875rem;
 }
 
 .summary__title {
@@ -204,7 +198,7 @@ body {
 .summary__list li:last-child {
   background-color: hsl(var(--clr-blue) / 0.1);
   color: hsl(var(--clr-blue));
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .summary__btn {
@@ -216,16 +210,30 @@ body {
   border: 0;
   border-radius: 1.5625rem;
   color: hsl(var(--clr-white));
+  font-weight: 500;
 }
 
 @media (min-width: 35em) {
   .section {
+    max-width: 40.625rem;
     flex-direction: row;
     position: absolute;
     top: 50%;
     left: 50%;
     justify-content: center;
-    align-items: center;
     transform: translate(-50%, -50%);
+    box-shadow: 0px 3px 12px hsl(var(--clr-darkGrayBlue) / 0.15);
+    border-radius: 2rem;
+  }
+
+  .result {
+    border-radius: 2rem;
+  }
+
+  .summary__btn:hover {
+    background-image: linear-gradient(
+      hsl(var(--bg-royalBlue) / 0.95),
+      hsl(var(--bg-violetBlue))
+    );
   }
 }
