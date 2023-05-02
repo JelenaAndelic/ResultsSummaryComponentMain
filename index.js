@@ -1,11 +1,16 @@
-const summaryResults = [];
+async function getResults() {
+  let url = "data.json";
+  try {
+    let response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-fetch("./data.json")
-  .then((response) => response.json())
-  .then((results) => summaryResults.push(...results));
-
-window.onload = function (e) {
-  const listItems = summaryResults
+async function renderResults() {
+  let results = await getResults();
+  const listItems = results
     .map((item) => {
       return `
     <li>
@@ -18,4 +23,6 @@ window.onload = function (e) {
     .join("");
 
   document.getElementById("items").innerHTML = listItems;
-};
+}
+
+renderResults();
